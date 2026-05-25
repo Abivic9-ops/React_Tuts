@@ -1,0 +1,108 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Mastering Modern Web Development",
+      "body": "Web development has evolved rapidly with frameworks like React and Next.js making applications faster and more scalable.",
+      "photo": "https://picsum.photos/id/1015/600/400",
+      "author": {
+        "name": "John Mwangi",
+        "age": 29,
+        "occupation": "Full Stack Developer",
+        "work": "Builds scalable web applications and teaches junior developers modern frontend technologies.",
+        "maritalStatus": "Single"
+      }
+    },
+    {
+      "id": 2,
+      "title": "The Rise of Artificial Intelligence",
+      "body": "Artificial Intelligence is transforming industries across the globe through automation and machine learning.",
+      "photo": "https://picsum.photos/id/1025/600/400",
+      "author": {
+        "name": "Sarah Atieno",
+        "age": 34,
+        "occupation": "AI Researcher",
+        "work": "Conducts research on machine learning models and artificial intelligence systems.",
+        "maritalStatus": "Married"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Design Principles Every Developer Should Know",
+      "body": "Understanding spacing, typography, and layout systems improves user experience significantly.",
+      "photo": "https://picsum.photos/id/1035/600/400",
+      "author": {
+        "name": "Kevin Otieno",
+        "age": 27,
+        "occupation": "UI/UX Designer",
+        "work": "Designs modern interfaces and improves user experiences for mobile and web applications.",
+        "maritalStatus": "Single"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Why JavaScript Dominates the Web",
+      "body": "JavaScript powers both frontend and backend systems, making it one of the most versatile languages.",
+      "photo": "https://picsum.photos/id/1045/600/400",
+      "author": {
+        "name": "Brian Kiptoo",
+        "age": 31,
+        "occupation": "Software Engineer",
+        "work": "Develops enterprise applications and backend systems using JavaScript and Node.js.",
+        "maritalStatus": "Divorced"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Building Scalable APIs",
+      "body": "Efficient APIs require proper authentication, database optimization, and caching strategies.",
+      "photo": "https://picsum.photos/id/1055/600/400",
+      "author": {
+        "name": "Mercy Wanjiru",
+        "age": 26,
+        "occupation": "Backend Developer",
+        "work": "Creates secure REST APIs and manages cloud databases for startups.",
+        "maritalStatus": "Engaged"
+      }
+    },
+    {
+      "id": 6,
+      "title": "The Future of Cloud Computing",
+      "body": "Cloud infrastructure enables global scalability and flexible deployments for applications.",
+      "photo": "https://picsum.photos/id/1065/600/400",
+      "author": {
+        "name": "David Ochieng",
+        "age": 38,
+        "occupation": "Cloud Engineer",
+        "work": "Manages cloud deployments and DevOps pipelines for enterprise platforms.",
+        "maritalStatus": "Married"
+      }
+    },
+    {
+      "id": 7,
+      "title": "Cybersecurity in the Digital Era",
+      "body": "Cybersecurity has become a critical part of protecting user data and digital systems.",
+      "photo": "https://picsum.photos/id/1075/600/400",
+      "author": {
+        "name": "Linda Akinyi",
+        "age": 30,
+        "occupation": "Cybersecurity Analyst",
+        "work": "Monitors digital threats and secures company systems against cyber attacks.",
+        "maritalStatus": "Single"
+      }
+    },
+    {
+      "id": 8,
+      "title": "Getting Started with React Hooks",
+      "body": "React Hooks simplify state management and lifecycle logic in functional components.",
+      "photo": "https://picsum.photos/id/1085/600/400",
+      "author": {
+        "name": "Mark Kamau",
+        "age": 24,
+        "occupation": "Frontend Developer",
+        "work": "Builds responsive interfaces and teaches React fundamentals to beginner developers.",
+        "maritalStatus": "Single"
+      }
+    }
+  ]
+}

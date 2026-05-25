@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Bloglist from './Bloglist';
 
 
@@ -15,22 +15,62 @@ const Home = () => {
     //     setName('Victor');
     //     setAge(30);
     // }
-    const [blogs] = useState([
-        { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
-        { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
-    ]);
+    const [blogs, setBlogs] = useState(null);
+    const [isPending, setIsPending] = useState(true);
+    const [error, setError] = useState(null);
+
+    // const [name, setName] = useState('mario');
+
+    const handleDelete = (id) => {
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newBlogs);
+    }
+
+    useEffect(() => {
+        // Fetch data from our backend server
+        fetch('http://localhost:8000/api/posts')
+            .then(res => {
+                if (!res.ok) {
+                    throw Error('Could not fetch the data for that resource');
+                }
+                return res.json();
+            })
+            .then(data => {
+                setBlogs(data);
+                setIsPending(false);
+                setError(null);
+            })
+            .catch(err => {
+                setIsPending(false);
+                setError(err.message);
+            });
+    }, []);
 
     return (
-        <div className="flex flex-col items-center gap-4 mt-5">
-            <h2 className="text-2xl text-purple-800 text-shadow-purple-800 ">Homepage</h2>
-            {/* <p className=" text-purple-600 bg-white border-2 border-purple-600 py-2 px-6 rounded-2xl text-2xl">My name is {name} and I am {age} years old.</p>
-            <button className="bg-purple-600 text-white py-2 px-6 rounded-xl hover:bg-purple-700 transition duration-300 transform hover:scale-105" onClick={handleClick}>Click Me</button> */}
-            <Bloglist blogs={blogs} title="All Blogs!" />
+        <div className="w-full">
+            {/* Header section with optional sleek typography if wanted, but Bloglist already has a title */}
+            
+            {/* Conditional loading and error messages */}
+            {error && (
+                <div className="glass-card p-6 text-red-500 text-center max-w-lg mx-auto mt-10">
+                    <span className="font-bold">Error:</span> {error}
+                </div>
+            )}
+            
+            {isPending && (
+                <div className="flex justify-center items-center py-20">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500"></div>
+                </div>
+            )}
+
+            {/* Only render Bloglist when blogs data is available */}
+            <div className="flex flex-col gap-8">
+                {blogs && <Bloglist blogs={blogs} title="All Publications" handleDelete={handleDelete} />}
+                {blogs && <Bloglist blogs={blogs.filter((blog) => blog.author.name === 'John Mwangi')} title="John's Masterpieces" />}
+            </div>
         </div>
     );
 
 }
 
-export default Home;    
- 
+export default Home;
