@@ -24,12 +24,14 @@ const Bloglist = ({blogs, title, handleDelete}) => {
                             <p className="text-slate-600 leading-relaxed mb-6 line-clamp-3">{blog.body}</p>
                         </div>
                         
-                        <button 
-                            className="w-full bg-red-50 text-red-600 border border-red-100 py-2.5 px-4 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 font-medium" 
-                            onClick={() => handleDelete(blog.id)}
-                        >
-                            Delete Blog
-                        </button>
+                        {handleDelete && (
+                            <button 
+                                className="w-full bg-red-50 text-red-600 border border-red-100 py-2.5 px-4 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 font-medium" 
+                                onClick={() => handleDelete(blog.id)}
+                            >
+                                Delete Blog
+                            </button>
+                        )}
                     </div>
                 ))}
             </div>

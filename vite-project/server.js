@@ -32,6 +32,6 @@ app.get("/api/posts/:id", (req, res) => {
 });
 
 app.listen(8000, () => {
-  console.log("✅ Server running on http://localhost:8000");
-  console.log("📖 Blogs API: http://localhost:8000/api/posts");
+  console.log(" Server running on http://localhost:8000");
+  console.log(" Blogs API: http://localhost:8000/api/posts");
 });
