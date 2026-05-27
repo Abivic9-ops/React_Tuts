@@ -50,6 +50,15 @@ app.get("/api/posts/:id", (req, res) => {
   res.json(post);
 });
 
+// Route: DELETE /api/posts/:id → delete a blog by id
+app.delete("/api/posts/:id", (req, res) => {
+  const index = db.blogs.findIndex((b) => b.id === parseInt(req.params.id));
+  if (index === -1) return res.status(404).json({ error: "Post not found" });
+  const deletedBlog = db.blogs.splice(index, 1);
+  writeFileSync(join(__dirname, "data", "db.json"), JSON.stringify(db, null, 2));
+  res.json({ message: "Post deleted", deleted: deletedBlog[0] });
+});
+
 app.listen(8000, () => {
   console.log(" Server running on http://localhost:8000");
   console.log(" Blogs API: http://localhost:8000/api/posts");

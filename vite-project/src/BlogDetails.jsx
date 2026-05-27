@@ -1,17 +1,23 @@
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useFetch from "./usefetch";
 
 const BlogDetails = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const {data: blog, isPending, error} = useFetch('http://localhost:8000/api/posts/' + id)    
 
     const handleDelete = () => {
         fetch('http://localhost:8000/api/posts/' + blog.id, {
             method: 'DELETE'
-        }).then(() => {
+        }).then((res) => {
+            if (!res.ok) throw new Error('Failed to delete blog');
             console.log('blog deleted');
-            history.push('/');
-        })
+            navigate('/');
+        }).catch((err) => {
+            console.error('Error deleting blog:', err);
+            alert('Failed to delete blog: ' + err.message);
+        });
     }
     return (
         <div className="w-full max-w-7xl mx-auto mt-10">

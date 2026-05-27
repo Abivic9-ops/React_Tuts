@@ -116,6 +116,19 @@
       },
       "photo": "https://picsum.photos/id/1018/600/400",
       "id": 9
+    },
+    {
+      "title": "Victor",
+      "body": "UJSSJCDJSNXC",
+      "author": {
+        "name": "John Mwangi",
+        "age": 30,
+        "occupation": "Content Creator",
+        "work": "Writes amazing articles for the blog.",
+        "maritalStatus": "Single"
+      },
+      "photo": "https://picsum.photos/id/1018/600/400",
+      "id": 10
     }
   ]
 }

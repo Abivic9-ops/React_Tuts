@@ -5,6 +5,7 @@ import Create from './Create';
 import About from './About';
 import Contact from './Contact';
 import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 
 function App() {
 
@@ -19,12 +20,12 @@ function App() {
           <Navbar />
           <div className="container mx-auto px-6 py-10 max-w-7xl">
             <Routes>
-              <Route exact path="/" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/create" element={<Create />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/bloglist/:id" element={<BlogDetails />} />
-              
+              <Route path="*" element={<NotFound />} /> 
             </Routes>
 
 
