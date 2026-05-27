@@ -10,8 +10,11 @@ const Bloglist = ({blogs, title, handleDelete}) => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {blogs.map((blog) => (
-                    <div key={blog.id} className="glass-card p-8 flex flex-col justify-between">
-                        <div>
+                    <div key={blog.id} className="glass-card flex flex-col justify-between overflow-hidden rounded-3xl">
+                        {blog.photo && (
+                            <img src={blog.photo} alt={blog.title} className="w-full h-48 object-cover" />
+                        )}
+                        <div className="p-8">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">
                                     {blog.author.name.charAt(0)}

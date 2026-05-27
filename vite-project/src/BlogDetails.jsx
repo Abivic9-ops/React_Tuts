@@ -14,11 +14,16 @@ const BlogDetails = () => {
                 <span className="font-bold">Error:</span> {error}
             </div>} 
             {blog && (
-                <article className="glass-card p-8 rounded-3xl shadow-lg bg-white/40 backdrop-blur-md border border-white/20">
-                    <h2 className="text-3xl font-extrabold text-slate-800 mb-6">{blog.title}</h2>
-                    <p className="text-slate-600 mb-6">Written by {blog.author.name}</p>
-                    <div className="text-slate-700 leading-relaxed">
-                        <p>{blog.body}</p>
+                <article className="glass-card rounded-3xl shadow-lg bg-white/40 backdrop-blur-md border border-white/20 overflow-hidden">
+                    {blog.photo && (
+                        <img src={blog.photo} alt={blog.title} className="w-full h-72 object-cover" />
+                    )}
+                    <div className="p-8">
+                        <h2 className="text-3xl font-extrabold text-slate-800 mb-4">{blog.title}</h2>
+                        <p className="text-slate-500 mb-6 font-medium">Written by {blog.author.name} · {blog.author.occupation}</p>
+                        <div className="text-slate-700 leading-relaxed">
+                            <p>{blog.body}</p>
+                        </div>
                     </div>
                 </article>
             )}  
