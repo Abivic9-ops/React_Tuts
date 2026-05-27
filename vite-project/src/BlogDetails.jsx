@@ -5,6 +5,14 @@ const BlogDetails = () => {
     const { id } = useParams();
     const {data: blog, isPending, error} = useFetch('http://localhost:8000/api/posts/' + id)    
 
+    const handleDelete = () => {
+        fetch('http://localhost:8000/api/posts/' + blog.id, {
+            method: 'DELETE'
+        }).then(() => {
+            console.log('blog deleted');
+            history.push('/');
+        })
+    }
     return (
         <div className="w-full max-w-7xl mx-auto mt-10">
             {isPending && <div className="flex justify-center items-center py-20">
@@ -24,6 +32,8 @@ const BlogDetails = () => {
                         <div className="text-slate-700 leading-relaxed">
                             <p>{blog.body}</p>
                         </div>
+                    <button className="w-full bg-red-50 text-red-600 border border-red-100 py-2.5 px-4 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 font-medium"
+                    onClick={handleDelete}>Delete Blog</button>
                     </div>
                 </article>
             )}  

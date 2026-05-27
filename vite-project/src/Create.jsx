@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [authorName, setAuthorName] = useState('John Mwangi');
   const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
 
@@ -30,11 +30,18 @@ const Create = () => {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog)
-    }).then(() => {
+    }).then((res) => {
+      if (!res.ok) throw new Error('Failed to add blog');
       console.log('new blog added');
       setIsPending(false);
-      navigate('/');
+      navigate('/');  
+    }).catch((err) => {
+      setError(err.message);
+      setIsPending(false);
+      console.error('Error adding blog:', err);
     });
+
+
   }
 
   return (
