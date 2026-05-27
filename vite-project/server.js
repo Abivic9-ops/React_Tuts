@@ -1,5 +1,5 @@
 import express from "express";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
@@ -19,9 +19,21 @@ app.use((req, res, next) => {
   next();
 });
 
+// Middleware to parse JSON bodies
+app.use(express.json());
+
 // Route: GET /api/posts → returns all blog entries
 app.get("/api/posts", (req, res) => {
   res.json(db.blogs);
+});
+
+// Route: POST /api/posts → create a new blog
+app.post("/api/posts", (req, res) => {
+  const newPost = req.body;
+  newPost.id = db.blogs.length > 0 ? Math.max(...db.blogs.map(b => b.id)) + 1 : 1;
+  db.blogs.push(newPost);
+  writeFileSync(join(__dirname, "data", "db.json"), JSON.stringify(db, null, 2));
+  res.status(201).json(newPost);
 });
 
 // Route: GET /api/posts/:id → returns a single blog by id

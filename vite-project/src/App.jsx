@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Create from './Create';
 import About from './About';
 import Contact from './Contact';
+import BlogDetails from './BlogDetails';
 
 function App() {
 
@@ -22,7 +23,10 @@ function App() {
               <Route path="/create" element={<Create />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/bloglist/:id" element={<BlogDetails />} />
+              
             </Routes>
+
 
           </div>
         </div>

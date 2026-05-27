@@ -11,6 +11,7 @@ const  Navbar = () => {
                 <Link to="/create" className="text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">New Blog</Link>
                 <Link to="/about" className="text-slate-600 hover:text-emerald-600 transition-colors duration-200">About</Link>
                 <Link to="/contact" className="text-slate-600 hover:text-emerald-600 transition-colors duration-200">Contact</Link>
+               
             </div>
         </nav>
     );

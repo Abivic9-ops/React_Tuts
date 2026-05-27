@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Bloglist = ({blogs, title, handleDelete}) => {
     // const { blogs } = props;
@@ -15,23 +16,24 @@ const Bloglist = ({blogs, title, handleDelete}) => {
                                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">
                                     {blog.author.name.charAt(0)}
                                 </div>
+                                <Link to={`/bloglist/${blog.id}`}>
                                 <div>
                                     <p className="text-sm font-semibold text-slate-700">{blog.author.name}</p>
                                     <p className="text-xs text-slate-500">{blog.author.occupation}</p>
                                 </div>
+                                    </Link>
                             </div>
                             <h3 className="text-xl font-bold text-slate-800 mb-3 leading-tight">{blog.title}</h3>
                             <p className="text-slate-600 leading-relaxed mb-6 line-clamp-3">{blog.body}</p>
-                        </div>
-                        
-                        {handleDelete && (
                             <button 
                                 className="w-full bg-red-50 text-red-600 border border-red-100 py-2.5 px-4 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 font-medium" 
                                 onClick={() => handleDelete(blog.id)}
                             >
                                 Delete Blog
                             </button>
-                        )}
+                              
+                        </div>
+                        
                     </div>
                 ))}
             </div>
